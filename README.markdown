@@ -13,11 +13,4 @@ http://en.gravatar.com/site/implement/url
 
 ## Installation
 
-Register the bundle in your application kernel:
-
-    public function registerBundles()
-    {
-        $bundles = array(
-            new Bundle\GravatarBundle\Bundle(),
-        );
-    }
+Just put GravatarBundle in a Bundle dir.
