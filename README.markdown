@@ -29,11 +29,11 @@ Usage
 
 All you have to do is use the helper like this example:
 
-      <img src="<?php echo $view->gravatar->render('clement.jobeili@gmail.com') ?>" />
+      <img src="<?php echo $view->gravatar->render('name@domain.com') ?>" />
 
 Or with parameters:
 
-      <img src="<?php echo $view->gravatar->render('clement.jobeili@gmail.com', array('size' => 20)) ?>" />
+      <img src="<?php echo $view->gravatar->render('name@domain.com', array('size' => 20)) ?>" />
 
 Available options:
     - size : the size of the avatar (default to 80px)
