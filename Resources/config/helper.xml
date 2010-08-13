@@ -1,0 +1,19 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://www.symfony-project.org/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.symfony-project.org/schema/dic/services http://www.symfony-project.org/schema/dic/services/services-1.0.xsd">
+
+  <parameters>  
+    
+    <parameter key="templating.helper.gravatar.class">Bundle\GravatarBundle\Helper\GravatarHelper</parameter>
+  
+  </parameters>
+  
+  <services>
+  
+    <service id="templating.helper.gravatar" class="%templating.helper.gravatar.class%">
+      <tag name="templating.helper" alias="gravatar" />
+    </service>
+  </services>
+</container>
