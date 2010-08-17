@@ -11,6 +11,15 @@ class GravatarExtension extends Extension
     {
         $loader = new XmlFileLoader($container, __DIR__.'/../Resources/config');
         $loader->load('helper.xml');
+
+        $parameters = array();
+        foreach (array('size', 'rating', 'default') as $key) {
+            if (isset($config[$key])) {
+                $parameters[$key] = $config[$key];
+            }
+        }
+
+        $container->getDefinition('gravatar.api')->addArgument($parameters);
     }
 
     /**

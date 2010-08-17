@@ -23,6 +23,14 @@ Installation
           # application/config/config.yml
           gravatar.helper: ~
 
+  4. If you always have some default for your gravatars such as size, rating or default it can be configured in your config.yml
+
+         # application/config/config.yml
+         gravatar.helper:
+            rating: g
+            size: 80
+            default: ~
+
 
 Usage
 =====
