@@ -27,6 +27,12 @@ class GravatarApi
     {
         $hash = md5(strtolower($email));
 
-        return 'http://www.gravatar.com/avatar/' . $hash . '?' . http_build_query(array_filter(compact('size', 'rating', 'default')));
+        $map = array(
+            's' => $size,
+            'r' => $rating,
+            'd' => $default,
+        );
+
+        return 'http://www.gravatar.com/avatar/' . $hash . '?' . http_build_query(array_filter($map));
     }
 }
