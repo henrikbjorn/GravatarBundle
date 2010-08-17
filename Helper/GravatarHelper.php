@@ -3,7 +3,7 @@
 namespace Bundle\GravatarBundle\Helper;
 
 use Symfony\Components\Templating\Helper\HelperInterface;
-use Bundle\GravatarBundle\Api;
+use Bundle\GravatarBundle\GravatarApi;
 
 class GravatarHelper implements HelperInterface
 {
@@ -15,7 +15,7 @@ class GravatarHelper implements HelperInterface
 
     public function render($email, $size = 80, $rating = 'g', $default = null)
     {
-        return Api::getUrl($email, $size, $rating, $default);
+        return GravatarApi::getUrl($email, $size, $rating, $default);
     }
 
     /**
