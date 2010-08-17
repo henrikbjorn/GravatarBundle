@@ -7,15 +7,39 @@ use Bundle\GravatarBundle\GravatarApi;
 
 class GravatarHelper implements HelperInterface
 {
+    /**
+     * @var string $charset
+     */
     protected $charset = 'UTF-8';
 
-    public function __construct()
+    /**
+     * @var Bundle\GravatarBundle\GravatarApi $api
+     */
+    protected $api;
+
+    /**
+     * Constructor
+     *
+     * @param Bundle\GravatarBundle\GravatarApi $api
+     * @return void
+     */
+    public function __construct(GravatarApi $api)
     {
+        $this->api = $api;
     }
 
-    public function render($email, $size = 80, $rating = 'g', $default = null)
+    /**
+     * Returns a url for a gravatar
+     *
+     * @param  string  $email
+     * @param  integer $size
+     * @param  string  $rating
+     * @param  string  $default
+     * @return string
+     */
+    public function render($email, $size = null, $rating = null, $default = null)
     {
-        return GravatarApi::getUrl($email, $size, $rating, $default);
+        return $this->api->getUrl($email, $size, $rating, $default);
     }
 
     /**

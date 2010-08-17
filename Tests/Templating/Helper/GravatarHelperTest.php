@@ -12,7 +12,7 @@ class GravatarHelperTest extends TestCase
 
     public function setUp()
     {
-        $this->helper = new GravatarHelper();
+        $this->helper = new GravatarHelper(new GravatarApi());
     }
 
     public function testRenderReturnsTheCorrectUrl()

@@ -4,13 +4,17 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://www.symfony-project.org/schema/dic/services http://www.symfony-project.org/schema/dic/services/services-1.0.xsd">
 
-  <parameters>
-    <parameter key="templating.helper.gravatar.class">Bundle\GravatarBundle\Templating\Helper\GravatarHelper</parameter>
-  </parameters>
+    <parameters>
+        <parameter key="templating.helper.gravatar.class">Bundle\GravatarBundle\Templating\Helper\GravatarHelper</parameter>
+        <parameter key="gravatar.api.class">Bundle\GravatarBundle\GravatarApi</parameter>
+    </parameters>
 
-  <services>
-    <service id="templating.helper.gravatar" class="%templating.helper.gravatar.class%">
-      <tag name="templating.helper" alias="gravatar" />
-    </service>
-  </services>
+    <services>
+        <service id="gravatar.api" class="%gravatar.api.class%" />
+
+        <service id="templating.helper.gravatar" class="%templating.helper.gravatar.class%">
+            <tag name="templating.helper" alias="gravatar" />
+            <argument type="service" id="gravatar.api" />
+        </service>
+    </services>
 </container>
