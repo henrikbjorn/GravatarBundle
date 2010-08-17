@@ -8,16 +8,16 @@ use Bundle\GravatarBundle\Api;
 class GravatarHelper implements HelperInterface
 {
     protected $charset = 'UTF-8';
-  
+
     public function __construct()
     {
     }
-    
-    public function render($email, $options = array())
+
+    public function render($email, $size = 80, $rating = 'g', $default = null)
     {
-        return Api::getUrl($email, $options);
+        return Api::getUrl($email, $size, $rating, $default);
     }
-    
+
     /**
      * Sets the default charset.
      *
@@ -27,7 +27,7 @@ class GravatarHelper implements HelperInterface
     {
         $this->charset = $charset;
     }
-    
+
     /**
      * Gets the default charset.
      *
@@ -37,7 +37,7 @@ class GravatarHelper implements HelperInterface
     {
         return $this->charset;
     }
-       
+
     public function getName()
     {
         return 'gravatar';
