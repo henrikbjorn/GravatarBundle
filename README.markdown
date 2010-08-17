@@ -33,11 +33,8 @@ All you have to do is use the helper like this example:
 
 Or with parameters:
 
-      <img src="<?php echo $view->gravatar->render('name@domain.com', array('size' => 20)) ?>" />
+      <img src="<?php echo $view->gravatar->render('mail@domain.tpl', '80', 'g', 'defaultimage.png') ?>" />
 
-Available options:
-    - size : the size of the avatar (default to 80px)
-    - rating : is the type of content in the image (default to G)
-    - default_image: the default image (default to null)
-    
+The only required parameter is the email adresse. The rest have default values.
+
 For more information, check the gravatar page : http://fr.gravatar.com/site/implement/images/
