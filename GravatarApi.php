@@ -29,7 +29,8 @@ class GravatarApi
      * @param array $options the array is merged with the defaults.
      * @return void
      */
-    public function __construct(array $options = array()) {
+    public function __construct(array $options = array())
+    {
         $this->defaults = array_merge($this->defaults, $options);
     }
 
@@ -38,7 +39,7 @@ class GravatarApi
      *
      * @param  string  $email
      * @param  integer $size
-     * @param  string  $ratin
+     * @param  string  $rating
      * @param  string  $default
      * @return string
      */
@@ -46,11 +47,10 @@ class GravatarApi
     {
         $hash = md5(strtolower($email));
 
-        $options = array_merge($this->defaults, array_filter(compact('size', 'rating', 'default')));
         $map = array(
-            's' => $options['size'],
-            'r' => $options['rating'],
-            'd' => $options['default'],
+            's' => null !== $size ? $size : $this->defaults['size'],
+            'r' => null !== $rating ? $rating : $this->defaults['rating'],
+            'd' => null !== $default ? $default : $this->defaults['default'],
         );
 
         return 'http://www.gravatar.com/avatar/' . $hash . '?' . http_build_query(array_filter($map));
