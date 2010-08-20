@@ -5,6 +5,12 @@ namespace Bundle\GravatarBundle\Templating\Helper;
 use Symfony\Components\Templating\Helper\HelperInterface;
 use Bundle\GravatarBundle\GravatarApi;
 
+/**
+ * Symfony 2 Helper for Gravatar. Uses Bundle\GravatarBundle\GravatarApi
+ *
+ * @author Thibault Duplessis
+ * @author Henrik Bjornskov <henrik@bearwoods.dk>
+ */
 class GravatarHelper implements HelperInterface
 {
     /**
@@ -37,7 +43,7 @@ class GravatarHelper implements HelperInterface
      * @param  string  $default
      * @return string
      */
-    public function render($email, $size = null, $rating = null, $default = null)
+    public function getUrl($email, $size = null, $rating = null, $default = null)
     {
         return $this->api->getUrl($email, $size, $rating, $default);
     }
@@ -62,6 +68,11 @@ class GravatarHelper implements HelperInterface
         return $this->charset;
     }
 
+    /**
+     * Name of this Helper
+     *
+     * @return string
+     */
     public function getName()
     {
         return 'gravatar';

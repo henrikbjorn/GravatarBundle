@@ -15,8 +15,8 @@ class GravatarHelperTest extends TestCase
         $this->helper = new GravatarHelper(new GravatarApi());
     }
 
-    public function testRenderReturnsTheCorrectUrl()
+    public function testGetUrlReturnsTheCorrectUrl()
     {
-        $this->assertEquals('http://www.gravatar.com/avatar/0aa61df8e35327ac3b3bc666525e0bee?s=80&r=g', $this->helper->render('henrik@bearwoods.dk'));
+        $this->assertEquals('http://www.gravatar.com/avatar/0aa61df8e35327ac3b3bc666525e0bee?s=80&r=g', $this->helper->getUrl('henrik@bearwoods.dk'));
     }
 }
