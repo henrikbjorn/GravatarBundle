@@ -45,6 +45,6 @@ Or with parameters:
 
 The only required parameter is the email adress. The rest have default values.
 
-For more information look at the gravatar implementation pages.
+For more information [look at the gravatar implementation pages][gravatar].
 
 [gravatar]: http://en.gravatar.com/site/implement/
