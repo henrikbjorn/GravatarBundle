@@ -18,15 +18,15 @@ Installation
               );
           }
 
-  3. Configure the `gravatar` helper in your config:
+  3. Configure the `gravatar` service and helper in your config:
 
           # application/config/config.yml
-          gravatar.helper: ~
+          gravatar.config: ~
 
-  4. If you always have some default for your gravatars such as size, rating or default it can be configured in your config.yml
+  4. If you always have some default for your gravatars such as size, rating or default it can be configured in your config
 
          # application/config/config.yml
-         gravatar.helper:
+         gravatar.config:
             rating: g
             size: 80
             default: ~
@@ -43,6 +43,6 @@ Or with parameters:
 
       <img src="<?php echo $view['gravatar']->render('mail@domain.tpl', '80', 'g', 'defaultimage.png') ?>" />
 
-The only required parameter is the email adresse. The rest have default values.
+The only required parameter is the email adress. The rest have default values.
 
 For more information, check the gravatar page : http://fr.gravatar.com/site/implement/images/
