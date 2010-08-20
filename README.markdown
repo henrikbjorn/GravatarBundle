@@ -37,11 +37,11 @@ Usage
 
 All you have to do is use the helper like this example:
 
-      <img src="<?php echo $view->gravatar->render('name@domain.com') ?>" />
+      <img src="<?php echo $view['gravatar']->render('name@domain.com') ?>" />
 
 Or with parameters:
 
-      <img src="<?php echo $view->gravatar->render('mail@domain.tpl', '80', 'g', 'defaultimage.png') ?>" />
+      <img src="<?php echo $view['gravatar']->render('mail@domain.tpl', '80', 'g', 'defaultimage.png') ?>" />
 
 The only required parameter is the email adresse. The rest have default values.
 
