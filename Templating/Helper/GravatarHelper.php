@@ -2,7 +2,7 @@
 
 namespace Bundle\GravatarBundle\Templating\Helper;
 
-use Symfony\Components\Templating\Helper\HelperInterface;
+use Symfony\Component\Templating\Helper\HelperInterface;
 use Bundle\GravatarBundle\GravatarApi;
 
 /**
