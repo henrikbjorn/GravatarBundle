@@ -37,12 +37,14 @@ Usage
 
 All you have to do is use the helper like this example:
 
-      <img src="<?php echo $view['gravatar']->render('name@domain.com') ?>" />
+      <img src="<?php echo $view['gravatar']->getUrl('alias@domain.tld') ?>" />
 
 Or with parameters:
 
-      <img src="<?php echo $view['gravatar']->render('mail@domain.tpl', '80', 'g', 'defaultimage.png') ?>" />
+      <img src="<?php echo $view['gravatar']->getUrl('alias@domain.tld', '80', 'g', 'defaultimage.png') ?>" />
 
 The only required parameter is the email adress. The rest have default values.
 
-For more information, check the gravatar page : http://fr.gravatar.com/site/implement/images/
+For more information [look at the gravatar implementation pages][gravatar].
+
+[gravatar]: http://en.gravatar.com/site/implement/

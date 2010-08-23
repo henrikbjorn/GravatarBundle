@@ -18,8 +18,8 @@ class GravatarApi
      * @var array $default array of default options that can be overriden with getters and in the construct.
      */
     protected $defaults = array(
-        'size' => 80,
-        'rating' => 'g',
+        'size'    => 80,
+        'rating'  => 'g',
         'default' => null,
     );
 
@@ -48,9 +48,9 @@ class GravatarApi
         $hash = md5(strtolower($email));
 
         $map = array(
-            's' => null !== $size ? $size : $this->defaults['size'],
-            'r' => null !== $rating ? $rating : $this->defaults['rating'],
-            'd' => null !== $default ? $default : $this->defaults['default'],
+            's' => $size    ?: $this->defaults['size'],
+            'r' => $rating  ?: $this->defaults['rating'],
+            'd' => $default ?: $this->defaults['default'],
         );
 
         return 'http://www.gravatar.com/avatar/' . $hash . '?' . http_build_query(array_filter($map));
