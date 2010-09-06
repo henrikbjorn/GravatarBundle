@@ -55,4 +55,17 @@ class GravatarApi
 
         return 'http://www.gravatar.com/avatar/' . $hash . '?' . http_build_query(array_filter($map));
     }
+
+    /**
+     * Checks if a gravatar exists for the email. It does this by checking for 404 Not Found in the
+     * body returned.
+     *
+     * @param string $email
+     * @return boolean
+     */
+    public function exists($email)
+    {
+        $headers = get_headers($this->getUrl($email, null, null, '404'));
+        return $headers[0] == 'HTTP/1.1 404 Not Found' ? false : true;
+    }
 }

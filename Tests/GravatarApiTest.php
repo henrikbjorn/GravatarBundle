@@ -29,4 +29,13 @@ class GravatarApiTest extends TestCase
         $this->assertEquals('http://www.gravatar.com/avatar/0aa61df8e35327ac3b3bc666525e0bee?s=20&r=g&d=mm', $api->getUrl('henrik@bearwoods.dk'));
     }
 
+    public function testGravatarExists()
+    {
+        $api = new GravatarApi();
+
+        $this->assertFalse($api->exists('somefake@email.com'));
+
+        $this->assertTrue($api->exists('henrik@bearwoods.dk'));
+    }
+
 }

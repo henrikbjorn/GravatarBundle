@@ -49,6 +49,17 @@ class GravatarHelper implements HelperInterface
     }
 
     /**
+     * Returns true if a avatar could be found for the email
+     *
+     * @param string $email
+     * @return boolean
+     */
+    public function exists($email)
+    {
+        return $this->api->exists($email);
+    }
+
+    /**
      * Sets the default charset.
      *
      * @param string $charset The charset
