@@ -65,7 +65,22 @@ class GravatarApi
      */
     public function exists($email)
     {
-        $headers = get_headers($this->getUrl($email, null, null, '404'));
-        return $headers[0] == 'HTTP/1.1 404 Not Found' ? false : true;
+        $path = $this->getUrl($email, null, null, '404');
+
+        if (!function_exists('curl_init')) {
+            $headers = get_headers($path);
+            return $headers[0] == 'HTTP/1.1 404 Not Found' ? false : true;
+        }
+
+        $curl = curl_init();
+        curl_setopt_array($curl, array(
+            CURLOPT_NOBODY => 1,
+            CURLOPT_RETURNTRANSFER => 1,
+            CURLOPT_URL => $path,
+        ));
+
+        curl_exec($curl);
+
+        return curl_getinfo($curl, CURLINFO_HTTP_CODE) == 404 ? false : true;
     }
 }
