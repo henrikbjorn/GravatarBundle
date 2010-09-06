@@ -67,20 +67,13 @@ class GravatarApi
     {
         $path = $this->getUrl($email, null, null, '404');
 
-        if (!function_exists('curl_init')) {
-            $headers = get_headers($path);
-            return $headers[0] == 'HTTP/1.1 404 Not Found' ? false : true;
-        }
+        $sock = fsockopen('gravatar.com', 80, $errorNo, $error);
+        fputs($sock, "HEAD " . $path . " HTTP/1.0\r\n\r\n");
 
-        $curl = curl_init();
-        curl_setopt_array($curl, array(
-            CURLOPT_NOBODY => 1,
-            CURLOPT_RETURNTRANSFER => 1,
-            CURLOPT_URL => $path,
-        ));
+        $header = fgets($sock, 128);
 
-        curl_exec($curl);
+        fclose($sock);
 
-        return curl_getinfo($curl, CURLINFO_HTTP_CODE) == 404 ? false : true;
+        return trim($header) == 'HTTP/1.1 404 Not Found' ? false : true;
     }
 }
