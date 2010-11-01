@@ -31,6 +31,9 @@ Installation
             size: 80
             default: ~
 
+  5. If you use Twig and this in your config:
+
+         gravatar.twig: ~
 
 Usage
 =====
@@ -44,6 +47,14 @@ Or with parameters:
       <img src="<?php echo $view['gravatar']->getUrl('alias@domain.tld', '80', 'g', 'defaultimage.png') ?>" />
 
 The only required parameter is the email adress. The rest have default values.
+
+If you use twig you can use the helper like this exemple:
+
+      {% gravatar "alias@domain.tld" %}
+      
+Or with parameters:
+
+      {% gravatar "alias@domain.tld" with ['size': '80', 'rating' : 'g', 'default': 'defaultimage.png'] %}
 
 For more information [look at the gravatar implementation pages][gravatar].
 

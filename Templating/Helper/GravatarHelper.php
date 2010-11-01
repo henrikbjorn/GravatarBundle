@@ -47,6 +47,15 @@ class GravatarHelper implements HelperInterface
     {
         return $this->api->getUrl($email, $size, $rating, $default);
     }
+    
+    public function render($email, array $options = array())
+    {
+        $size = isset($options['size'])?$options['size']:null;
+        $rating = isset($options['rating'])?$options['rating']:null;
+        $default = isset($options['default'])?$options['default']:null;
+        
+        return $this->api->getUrl($email, $size, $rating, $default);
+    }
 
     /**
      * Returns true if a avatar could be found for the email
