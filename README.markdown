@@ -3,7 +3,7 @@ Installation
 
   1. Add this bundle to your project as Git submodules:
 
-          $ git submodule add git://github.com/dator/GravatarBundle.git src/Bundle/GravatarBundle
+          $ git submodule add git://github.com/ornicar/GravatarBundle.git src/Bundle/GravatarBundle
 
 
   2. Add this bundle to your application's kernel:
