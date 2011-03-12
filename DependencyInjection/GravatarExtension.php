@@ -1,14 +1,15 @@
 <?php
 namespace Bundle\GravatarBundle\DependencyInjection;
 
-use Symfony\Component\DependencyInjection\Extension\Extension;
+use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 use Symfony\Component\DependencyInjection\Loader\XmlFileLoader;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
-use Symfony\Component\DependencyInjection\Loader\FileLocator;
+
+use Symfony\Component\Config\FileLocator;
 
 class GravatarExtension extends Extension
 {
-    public function configLoad($config, ContainerBuilder $container)
+    public function load(array $configs, ContainerBuilder $container)
     {
         $loader = new XmlFileLoader($container, new FileLocator(array(__DIR__.'/../Resources/config')));
         $loader->load('config.xml');
