@@ -11,7 +11,7 @@ interface GravatarHelperInterface
      * @param  integer $size
      * @param  string  $rating
      * @param  string  $default
-     * @param  boolean $secure
+     * @param  Boolean $secure
      * @return string
      */
     function getUrl($email, $size = null, $rating = null, $default = null, $secure = null);
@@ -23,7 +23,7 @@ interface GravatarHelperInterface
      * @param  integer $size
      * @param  string  $rating
      * @param  string  $default
-     * @param  boolean $secure
+     * @param  Boolean $secure
      * @return string
      */
     function getUrlForHash($hash, $size = null, $rating = null, $default = null, $secure = null);
@@ -32,7 +32,7 @@ interface GravatarHelperInterface
      * Returns true if a avatar could be found for the email
      *
      * @param string $email
-     * @return boolean
+     * @return Boolean
      */
     function exists($email);
 }

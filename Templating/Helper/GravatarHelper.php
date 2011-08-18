@@ -74,7 +74,7 @@ class GravatarHelper extends Helper implements GravatarHelperInterface
      * Returns true if avatar should be fetched over secure connection
      *
      * @param mixed $preset
-     * @return boolean
+     * @return Boolean
      */
     protected function isSecure($preset = null)
     {

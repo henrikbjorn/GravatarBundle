@@ -41,7 +41,7 @@ class GravatarApi
      * @param  integer $size
      * @param  string  $rating
      * @param  string  $default
-     * @param  boolean $secure
+     * @param  Boolean $secure
      * @return string
      */
     public function getUrl($email, $size = null, $rating = null, $default = null, $secure = false)
@@ -58,7 +58,7 @@ class GravatarApi
      * @param  integer $size
      * @param  string  $rating
      * @param  string  $default
-     * @param  boolean $secure
+     * @param  Boolean $secure
      * @return string
      */
     public function getUrlForHash($hash, $size = null, $rating = null, $default = null, $secure = false)
@@ -77,7 +77,7 @@ class GravatarApi
      * body returned.
      *
      * @param string $email
-     * @return boolean
+     * @return Boolean
      */
     public function exists($email)
     {
