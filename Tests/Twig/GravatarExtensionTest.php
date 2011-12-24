@@ -8,6 +8,10 @@ class GravatarExtensionTest extends \PHPUnit_Framework_TestCase
 {
     public function setUp()
     {
+        if (!class_exists('Twig_Extension')) {
+            $this->markTestSkipped('Twig_Extension cannot be found');
+        }
+
         $this->helper = $this->getMock('Ornicar\GravatarBundle\Templating\Helper\GravatarHelperInterface');
         $this->extension = new GravatarExtension($this->helper);
     }
