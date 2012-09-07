@@ -6,18 +6,15 @@ OrnicarGravatarBundle
 Installation
 ------------
 
-  1. Add this bundle to your project as Git submodules:
+  1. Add this bundle to your projects composer.json
 
-          $ git submodule add git://github.com/ornicar/GravatarBundle.git vendor/bundles/Ornicar/GravatarBundle
+        "require: { 
+            "ornicar/gravatar-bundle" : "dev-master"
+        }
 
-  2. Add the Ornicar namespace to your autoloader
+  2. Run composer update to install the bundle and regenerate the autoloader
 
-          // app/autoload.php
-
-          $loader->registerNamespaces(array(
-             'Ornicar' => __DIR__.'/../vendor/bundles',
-             // your other namespaces
-          );
+        composer.phar update
 
   3. Add this bundle to your application's kernel:
 
