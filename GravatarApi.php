@@ -78,8 +78,8 @@ class GravatarApi
     }
 
     /**
-     * Checks if a gravatar exists for the email. It does this by checking for 404 Not Found in the
-     * body returned.
+     * Checks if a gravatar exists for the email. It does this by checking for the presence of 404 in the header
+     * returned. Will return false if fsockopen fails, for example when the hostname cannot be resolved.
      *
      * @param string $email
      * @return Boolean
@@ -88,13 +88,13 @@ class GravatarApi
     {
         $path = $this->getUrl($email, null, null, '404');
 
-        $sock = fsockopen('gravatar.com', 80, $errorNo, $error);
-        fputs($sock, "HEAD " . $path . " HTTP/1.0\r\n\r\n");
+        if ($sock = @fsockopen('gravatar.com', 80, $errorNo, $error)) {
+            fputs($sock, "HEAD " . $path . " HTTP/1.0\r\n\r\n");
+            $header = fgets($sock, 128);
+            fclose($sock);
+            return strpos($header, '404') ? false : true;
+        }
 
-        $header = fgets($sock, 128);
-
-        fclose($sock);
-
-        return strpos($header, '404') ? false : true;
+        return false;
     }
 }
