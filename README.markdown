@@ -71,7 +71,7 @@ The only required parameter is the email adress. The rest have default values.
 If you use twig you can use the helper like this example:
 
 ```
-{{ gravatar('alias@domain.tld') }}
+<img src="{{ gravatar('alias@domain.tld') }}" />
 ```
 
 Or if you want to check if a gravatar email exists:
@@ -85,7 +85,7 @@ Or if you want to check if a gravatar email exists:
 Or with parameters:
 
 ```
-{{ gravatar('alias@domain.tld', size, rating, default, secure) }}
+<img src="{{ gravatar('alias@domain.tld', size, rating, default, secure) }}" />
 ```
 
 For more information [look at the gravatar implementation pages][gravatar].
