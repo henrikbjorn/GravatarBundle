@@ -70,7 +70,7 @@ class GravatarApi
             'd' => $default ?: $this->defaults['default'],
         );
 
-        if (null === $secure) {
+        if (null == $secure) {
             $secure = $this->defaults['secure'];
         }
 
