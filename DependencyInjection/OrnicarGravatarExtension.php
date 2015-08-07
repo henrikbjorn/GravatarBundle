@@ -1,11 +1,12 @@
 <?php
+
 namespace Ornicar\GravatarBundle\DependencyInjection;
 
-use Symfony\Component\HttpKernel\DependencyInjection\Extension;
-use Symfony\Component\DependencyInjection\Loader\XmlFileLoader;
-use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\Config\Definition\Processor;
 use Symfony\Component\Config\FileLocator;
+use Symfony\Component\DependencyInjection\ContainerBuilder;
+use Symfony\Component\DependencyInjection\Loader\XmlFileLoader;
+use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 
 class OrnicarGravatarExtension extends Extension
 {
@@ -18,6 +19,6 @@ class OrnicarGravatarExtension extends Extension
         $processor = new Processor();
         $config = $processor->process($configuration->getConfigTree(), $configs);
 
-        $container->getDefinition('gravatar.api')->addArgument($config );
+        $container->getDefinition('gravatar.api')->addArgument($config);
     }
 }

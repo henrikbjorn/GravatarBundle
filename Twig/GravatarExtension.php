@@ -11,7 +11,7 @@ use Ornicar\GravatarBundle\Templating\Helper\GravatarHelperInterface;
 class GravatarExtension extends \Twig_Extension implements GravatarHelperInterface
 {
     /**
-     * @var GravatarHelper $baseHelper
+     * @var GravatarHelper
      */
     protected $baseHelper;
 
@@ -33,7 +33,7 @@ class GravatarExtension extends \Twig_Extension implements GravatarHelperInterfa
     }
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function getUrl($email, $size = null, $rating = null, $default = null, $secure = null)
     {
@@ -41,7 +41,7 @@ class GravatarExtension extends \Twig_Extension implements GravatarHelperInterfa
     }
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function getUrlForHash($hash, $size = null, $rating = null, $default = null, $secure = null)
     {
@@ -49,7 +49,7 @@ class GravatarExtension extends \Twig_Extension implements GravatarHelperInterfa
     }
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function exists($email)
     {
