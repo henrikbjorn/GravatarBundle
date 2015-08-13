@@ -1,7 +1,10 @@
 OrnicarGravatarBundle
 =====================
 
-[![Build Status](https://secure.travis-ci.org/ornicar/GravatarBundle.png)](http://travis-ci.org/ornicar/GravatarBundle)
+Note: This is the new home for OrnicarGravatarBundle. The package name and namespace will not change. But the code
+will be maintained.
+
+[![Build Status](https://travis-ci.org/henrikbjorn/GravatarBundle.svg?branch=master)](https://travis-ci.org/henrikbjorn/GravatarBundle)
 
 Installation
 ------------
@@ -10,14 +13,14 @@ Installation
 
   ```json
   "require": { 
-      "ornicar/gravatar-bundle" : "dev-master"
+      "ornicar/gravatar-bundle" : "~1.0"
   }
   ```
 
   2. Run composer update to install the bundle and regenerate the autoloader
   
   ```bash
-  $ composer.phar update
+  $ composer update ornicar/gravatar-bundle
   ```
 
   3. Add this bundle to your application's kernel:
