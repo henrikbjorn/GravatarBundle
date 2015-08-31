@@ -2,10 +2,21 @@
 
 namespace Ornicar\GravatarBundle\Tests\Twig;
 
+use Ornicar\GravatarBundle\Templating\Helper\GravatarHelperInterface;
 use Ornicar\GravatarBundle\Twig\GravatarExtension;
 
 class GravatarExtensionTest extends \PHPUnit_Framework_TestCase
 {
+    /**
+     * @var GravatarHelperInterface
+     */
+    private $helper;
+
+    /**
+     * @var GravatarExtension
+     */
+    private $extension;
+
     public function setUp()
     {
         if (!class_exists('Twig_Extension')) {
@@ -34,13 +45,17 @@ class GravatarExtensionTest extends \PHPUnit_Framework_TestCase
 
     public function testFunctions()
     {
-        $this->assertContainsOnly('Twig_Function_Method', $this->extension->getFunctions());
+        $this->assertContainsOnlyInstancesOf('\Twig_SimpleFunction', $this->extension->getFunctions());
 
-        $this->assertEquals(array(
+        $expectedNames = array(
             'gravatar',
             'gravatar_hash',
             'gravatar_exists',
-        ), array_keys($this->extension->getFunctions()));
+        );
 
+        $functions = $this->extension->getFunctions();
+        foreach ($expectedNames as $n =>$expectedName) {
+            $this->assertSame($expectedName, $functions[$n]->getName());
+        }
     }
 }

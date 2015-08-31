@@ -20,7 +20,10 @@
         "twig/extensions": "1.0.*"
     },
     "suggest" : {
-        "twig/twig" : ">=1.3.0"
+        "twig/twig" : "For gravatar twig extension usage"
+    },
+    "conflict": {
+        "twig/twig": "<1.12"
     },
     "autoload": {
         "psr-0": {
