@@ -54,7 +54,7 @@ class GravatarExtensionTest extends \PHPUnit_Framework_TestCase
         );
 
         $functions = $this->extension->getFunctions();
-        foreach ($expectedNames as $n =>$expectedName) {
+        foreach ($expectedNames as $n => $expectedName) {
             $this->assertSame($expectedName, $functions[$n]->getName());
         }
     }

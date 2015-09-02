@@ -2,12 +2,12 @@
 
 namespace Ornicar\GravatarBundle\Templating\Helper;
 
-use Symfony\Component\DependencyInjection\ContainerInterface,
-    Symfony\Component\Templating\Helper\Helper;
 use Ornicar\GravatarBundle\GravatarApi;
+use Symfony\Component\DependencyInjection\ContainerInterface;
+use Symfony\Component\Templating\Helper\Helper;
 
 /**
- * Symfony 2 Helper for Gravatar. Uses Bundle\GravatarBundle\GravatarApi
+ * Symfony 2 Helper for Gravatar. Uses Bundle\GravatarBundle\GravatarApi.
  *
  * @author Thibault Duplessis
  * @author Henrik Bjornskov <henrik@bearwoods.dk>
@@ -15,20 +15,19 @@ use Ornicar\GravatarBundle\GravatarApi;
 class GravatarHelper extends Helper implements GravatarHelperInterface
 {
     /**
-     * @var Ornicar\GravatarBundle\GravatarApi $api
+     * @var Ornicar\GravatarBundle\GravatarApi
      */
     protected $api;
 
     /**
-     * @var ContainerInterface $container
+     * @var ContainerInterface
      */
     protected $container;
 
     /**
-     * Constructor
+     * Constructor.
      *
      * @param Ornicar\GravatarBundle\GravatarApi $api
-     * @return void
      */
     public function __construct(GravatarApi $api, ContainerInterface $container = null)
     {
@@ -37,7 +36,7 @@ class GravatarHelper extends Helper implements GravatarHelperInterface
     }
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function getUrl($email, $size = null, $rating = null, $default = null, $secure = null)
     {
@@ -45,7 +44,7 @@ class GravatarHelper extends Helper implements GravatarHelperInterface
     }
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function getUrlForHash($hash, $size = null, $rating = null, $default = null, $secure = null)
     {
@@ -54,16 +53,16 @@ class GravatarHelper extends Helper implements GravatarHelperInterface
 
     public function render($email, array $options = array())
     {
-        $size = isset($options['size'])?$options['size']:null;
-        $rating = isset($options['rating'])?$options['rating']:null;
-        $default = isset($options['default'])?$options['default']:null;
+        $size = isset($options['size']) ? $options['size'] : null;
+        $rating = isset($options['rating']) ? $options['rating'] : null;
+        $default = isset($options['default']) ? $options['default'] : null;
         $secure = $this->isSecure();
 
         return $this->api->getUrl($email, $size, $rating, $default, $secure);
     }
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function exists($email)
     {
@@ -71,9 +70,10 @@ class GravatarHelper extends Helper implements GravatarHelperInterface
     }
 
     /**
-     * Returns true if avatar should be fetched over secure connection
+     * Returns true if avatar should be fetched over secure connection.
      *
      * @param mixed $preset
+     *
      * @return Boolean
      */
     protected function isSecure($preset = null)
@@ -90,7 +90,7 @@ class GravatarHelper extends Helper implements GravatarHelperInterface
     }
 
     /**
-     * Name of this Helper
+     * Name of this Helper.
      *
      * @return string
      */

@@ -27,7 +27,7 @@ class GravatarApiTest extends \PHPUnit_Framework_TestCase
     public function testGravatarInitializedWithOptions()
     {
         $api = new GravatarApi(array(
-            'size' => 20,
+            'size'    => 20,
             'default' => 'mm',
         ));
 
@@ -42,5 +42,4 @@ class GravatarApiTest extends \PHPUnit_Framework_TestCase
 
         $this->assertTrue($api->exists('henrik@bjrnskov.dk'));
     }
-
 }
