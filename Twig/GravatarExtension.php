@@ -11,12 +11,12 @@ use Ornicar\GravatarBundle\Templating\Helper\GravatarHelperInterface;
 class GravatarExtension extends \Twig_Extension implements GravatarHelperInterface
 {
     /**
-     * @var GravatarHelper
+     * @var GravatarHelperInterface
      */
     protected $baseHelper;
 
     /**
-     * @param GravatarApi $api
+     * @param GravatarHelperInterface $helper
      */
     public function __construct(GravatarHelperInterface $helper)
     {
