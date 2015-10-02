@@ -24,6 +24,18 @@ class GravatarApiTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals('http://www.gravatar.com/avatar/0aa61df8e35327ac3b3bc666525e0bee?s=80&r=g&d=mm', $api->getUrl('henrik@bearwoods.dk', 80, 'g', 'mm'));
     }
 
+    public function testGravatarSecureProfileUrlWithDefaultOptions()
+    {
+        $api = new GravatarApi();
+        $this->assertEquals('https://secure.gravatar.com/0aa61df8e35327ac3b3bc666525e0bee', $api->getProfileUrl('henrik@bearwoods.dk', true));
+    }
+
+    public function testGravatarProfileUrlWithDefaultImage()
+    {
+        $api = new GravatarApi();
+        $this->assertEquals('http://www.gravatar.com/0aa61df8e35327ac3b3bc666525e0bee', $api->getProfileUrl('henrik@bearwoods.dk'));
+    }
+
     public function testGravatarInitializedWithOptions()
     {
         $api = new GravatarApi(array(

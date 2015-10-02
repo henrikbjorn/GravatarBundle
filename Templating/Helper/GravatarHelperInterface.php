@@ -31,6 +31,26 @@ interface GravatarHelperInterface
     public function getUrlForHash($hash, $size = null, $rating = null, $default = null, $secure = null);
 
     /**
+     * Returns a url for a gravatar profile.
+     *
+     * @param string  $email
+     * @param Boolean $secure
+     *
+     * @return string
+     */
+    public function getProfileUrl($email, $secure = null);
+
+    /**
+     * Returns a url for a gravatar profile, for the given hash.
+     *
+     * @param string  $hash
+     * @param Boolean $secure
+     *
+     * @return string
+     */
+    public function getProfileUrlForHash($hash, $secure = null);
+
+    /**
      * Returns true if a avatar could be found for the email.
      *
      * @param string $email

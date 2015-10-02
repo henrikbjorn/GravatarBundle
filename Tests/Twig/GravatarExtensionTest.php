@@ -36,6 +36,8 @@ class GravatarExtensionTest extends \PHPUnit_Framework_TestCase
         $this->extension->getUrl('henrik@bjrnskov.dk');
         $this->extension->exists('henrik@bjrnskov.dk');
         $this->extension->getUrlForHash(md5('henrik@bjrnskov.dk'));
+        $this->extension->getProfileUrl('henrik@bjrnskov.dk');
+        $this->extension->getProfileUrlForHash(md5('henrik@bjrnskov.dk'));
     }
 
     public function testName()
@@ -50,6 +52,8 @@ class GravatarExtensionTest extends \PHPUnit_Framework_TestCase
         $expectedNames = array(
             'gravatar',
             'gravatar_hash',
+            'gravatar_profile',
+            'gravatar_profile_hash',
             'gravatar_exists',
         );
 
