@@ -51,6 +51,22 @@ class GravatarHelper extends Helper implements GravatarHelperInterface
         return $this->api->getUrlForHash($hash, $size, $rating, $default, $this->isSecure($secure));
     }
 
+    /**
+     * {@inheritdoc}
+     */
+    public function getProfileUrl($email, $secure = null)
+    {
+        return $this->api->getProfileUrl($email, $this->isSecure($secure));
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getProfileUrlForHash($hash, $secure = null)
+    {
+        return $this->api->getProfileUrlForHash($hash, $this->isSecure($secure));
+    }
+
     public function render($email, array $options = array())
     {
         $size = isset($options['size']) ? $options['size'] : null;

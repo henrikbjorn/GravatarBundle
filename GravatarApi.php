@@ -77,6 +77,36 @@ class GravatarApi
     }
 
     /**
+     * Returns a url for a gravatar profile.
+     *
+     * @param string  $email
+     * @param Boolean $secure
+     *
+     * @return string
+     */
+    public function getProfileUrl($email, $secure = null)
+    {
+        $hash = md5(strtolower(trim($email)));
+
+        return $this->getProfileUrlForHash($hash, $secure);
+    }
+
+    /**
+     * Returns a url for a gravatar profile for the given hash.
+     *
+     * @param string  $hash
+     * @param Boolean $secure
+     *
+     * @return string
+     */
+    public function getProfileUrlForHash($hash, $secure = null)
+    {
+        $secure = $secure ?: $this->defaults['secure'];
+
+        return ($secure ? 'https://secure' : 'http://www').'.gravatar.com/'.$hash;
+    }
+
+    /**
      * Checks if a gravatar exists for the email. It does this by checking for the presence of 404 in the header
      * returned. Will return null if fsockopen fails, for example when the hostname cannot be resolved.
      *

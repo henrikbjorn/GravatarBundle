@@ -28,6 +28,8 @@ class GravatarExtension extends \Twig_Extension implements GravatarHelperInterfa
         return array(
             new \Twig_SimpleFunction('gravatar', array($this, 'getUrl')),
             new \Twig_SimpleFunction('gravatar_hash', array($this, 'getUrlForHash')),
+            new \Twig_SimpleFunction('gravatar_profile', array($this, 'getProfileUrl')),
+            new \Twig_SimpleFunction('gravatar_profile_hash', array($this, 'getProfileUrlForHash')),
             new \Twig_SimpleFunction('gravatar_exists', array($this, 'exists')),
         );
     }
@@ -46,6 +48,22 @@ class GravatarExtension extends \Twig_Extension implements GravatarHelperInterfa
     public function getUrlForHash($hash, $size = null, $rating = null, $default = null, $secure = null)
     {
         return $this->baseHelper->getUrlForHash($hash, $size, $rating, $default, $secure);
+    }
+
+    /*
+     * {@inheritdoc}
+     */
+    public function getProfileUrl($email, $secure = null)
+    {
+        return $this->baseHelper->getProfileUrl($email, $secure);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getProfileUrlForHash($hash, $secure = null)
+    {
+        return $this->baseHelper->getProfileUrlForHash($hash, $secure);
     }
 
     /**
