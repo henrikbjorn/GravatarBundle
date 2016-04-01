@@ -16,20 +16,7 @@ class GravatarHelperTest extends \PHPUnit_Framework_TestCase
 
     public function testGetUrlReturnsTheCorrectUrl()
     {
-        $this->assertEquals('http://www.gravatar.com/avatar/0aa61df8e35327ac3b3bc666525e0bee?s=80&r=g', $this->helper->getUrl('henrik@bearwoods.dk'));
-    }
-
-    public function testGetUrlReturnsTheCorrectSecureUrl()
-    {
-        $this->assertEquals(
-            'https://secure.gravatar.com/avatar/0aa61df8e35327ac3b3bc666525e0bee?s=80&r=g',
-            $this->helper->getUrl('henrik@bearwoods.dk', null, null, null, true)
-        );
-    }
-
-    public function testGetProfileUrlReturnsTheCorrectUrl()
-    {
-        $this->assertEquals('http://www.gravatar.com/0aa61df8e35327ac3b3bc666525e0bee', $this->helper->getProfileUrl('henrik@bearwoods.dk'));
+        $this->assertEquals('https://secure.gravatar.com/avatar/0aa61df8e35327ac3b3bc666525e0bee?s=80&r=g', $this->helper->getUrl('henrik@bearwoods.dk'));
     }
 
     public function testGetProfileUrlReturnsTheCorrectSecureUrl()
@@ -43,7 +30,7 @@ class GravatarHelperTest extends \PHPUnit_Framework_TestCase
     public function testGetProfileUrlForHashReturnsTheCorrectUrl()
     {
         $this->assertEquals(
-            'http://www.gravatar.com/0aa61df8e35327ac3b3bc666525e0bee',
+            'https://secure.gravatar.com/0aa61df8e35327ac3b3bc666525e0bee',
             $this->helper->getProfileUrlForHash('0aa61df8e35327ac3b3bc666525e0bee')
         );
     }

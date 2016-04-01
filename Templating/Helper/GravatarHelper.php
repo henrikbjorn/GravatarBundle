@@ -38,7 +38,7 @@ class GravatarHelper extends Helper implements GravatarHelperInterface
     /**
      * {@inheritdoc}
      */
-    public function getUrl($email, $size = null, $rating = null, $default = null, $secure = null)
+    public function getUrl($email, $size = null, $rating = null, $default = null, $secure = true)
     {
         return $this->api->getUrl($email, $size, $rating, $default, $this->isSecure($secure));
     }
@@ -46,7 +46,7 @@ class GravatarHelper extends Helper implements GravatarHelperInterface
     /**
      * {@inheritdoc}
      */
-    public function getUrlForHash($hash, $size = null, $rating = null, $default = null, $secure = null)
+    public function getUrlForHash($hash, $size = null, $rating = null, $default = null, $secure = true)
     {
         return $this->api->getUrlForHash($hash, $size, $rating, $default, $this->isSecure($secure));
     }
@@ -54,7 +54,7 @@ class GravatarHelper extends Helper implements GravatarHelperInterface
     /**
      * {@inheritdoc}
      */
-    public function getProfileUrl($email, $secure = null)
+    public function getProfileUrl($email, $secure = true)
     {
         return $this->api->getProfileUrl($email, $this->isSecure($secure));
     }
@@ -62,7 +62,7 @@ class GravatarHelper extends Helper implements GravatarHelperInterface
     /**
      * {@inheritdoc}
      */
-    public function getProfileUrlForHash($hash, $secure = null)
+    public function getProfileUrlForHash($hash, $secure = true)
     {
         return $this->api->getProfileUrlForHash($hash, $this->isSecure($secure));
     }
@@ -92,7 +92,7 @@ class GravatarHelper extends Helper implements GravatarHelperInterface
      *
      * @return Boolean
      */
-    protected function isSecure($preset = null)
+    protected function isSecure($preset = true)
     {
         if (null !== $preset) {
             return !!$preset;
