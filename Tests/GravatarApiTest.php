@@ -9,7 +9,13 @@ class GravatarApiTest extends \PHPUnit_Framework_TestCase
     public function testGravatarUrlWithDefaultOptions()
     {
         $api = new GravatarApi();
-        $this->assertEquals('http://www.gravatar.com/avatar/0aa61df8e35327ac3b3bc666525e0bee?s=80&r=g', $api->getUrl('henrik@bearwoods.dk   '));
+        $this->assertEquals('https://secure.gravatar.com/avatar/0aa61df8e35327ac3b3bc666525e0bee?s=80&r=g', $api->getUrl('henrik@bearwoods.dk   '));
+    }
+
+    public function testGravatarUrlWithDefaultOptionsNotSecure()
+    {
+        $api = new GravatarApi();
+        $this->assertEquals('http://www.gravatar.com/avatar/0aa61df8e35327ac3b3bc666525e0bee?s=80&r=g', $api->getUrl('henrik@bearwoods.dk', null, null, null, false));
     }
 
     public function testGravatarSecureUrlWithDefaultOptions()
@@ -21,7 +27,7 @@ class GravatarApiTest extends \PHPUnit_Framework_TestCase
     public function testGravatarUrlWithDefaultImage()
     {
         $api = new GravatarApi();
-        $this->assertEquals('http://www.gravatar.com/avatar/0aa61df8e35327ac3b3bc666525e0bee?s=80&r=g&d=mm', $api->getUrl('henrik@bearwoods.dk', 80, 'g', 'mm'));
+        $this->assertEquals('https://secure.gravatar.com/avatar/0aa61df8e35327ac3b3bc666525e0bee?s=80&r=g&d=mm', $api->getUrl('henrik@bearwoods.dk', 80, 'g', 'mm'));
     }
 
     public function testGravatarSecureProfileUrlWithDefaultOptions()
@@ -33,7 +39,7 @@ class GravatarApiTest extends \PHPUnit_Framework_TestCase
     public function testGravatarProfileUrlWithDefaultImage()
     {
         $api = new GravatarApi();
-        $this->assertEquals('http://www.gravatar.com/0aa61df8e35327ac3b3bc666525e0bee', $api->getProfileUrl('henrik@bearwoods.dk'));
+        $this->assertEquals('https://secure.gravatar.com/0aa61df8e35327ac3b3bc666525e0bee', $api->getProfileUrl('henrik@bearwoods.dk'));
     }
 
     public function testGravatarInitializedWithOptions()
@@ -43,7 +49,7 @@ class GravatarApiTest extends \PHPUnit_Framework_TestCase
             'default' => 'mm',
         ));
 
-        $this->assertEquals('http://www.gravatar.com/avatar/0aa61df8e35327ac3b3bc666525e0bee?s=20&r=g&d=mm', $api->getUrl('henrik@bearwoods.dk'));
+        $this->assertEquals('https://secure.gravatar.com/avatar/0aa61df8e35327ac3b3bc666525e0bee?s=20&r=g&d=mm', $api->getUrl('henrik@bearwoods.dk'));
     }
 
     public function testGravatarExists()

@@ -21,7 +21,7 @@ class GravatarApi
         'size'    => 80,
         'rating'  => 'g',
         'default' => null,
-        'secure'  => false,
+        'secure'  => true,
     );
 
     /**
@@ -45,7 +45,7 @@ class GravatarApi
      *
      * @return string
      */
-    public function getUrl($email, $size = null, $rating = null, $default = null, $secure = null)
+    public function getUrl($email, $size = null, $rating = null, $default = null, $secure = true)
     {
         $hash = md5(strtolower(trim($email)));
 
@@ -63,7 +63,7 @@ class GravatarApi
      *
      * @return string
      */
-    public function getUrlForHash($hash, $size = null, $rating = null, $default = null, $secure = null)
+    public function getUrlForHash($hash, $size = null, $rating = null, $default = null, $secure = true)
     {
         $map = array(
             's' => $size    ?: $this->defaults['size'],
@@ -71,7 +71,7 @@ class GravatarApi
             'd' => $default ?: $this->defaults['default'],
         );
 
-        $secure = $secure ?: $this->defaults['secure'];
+        $secure = isset($secure) ? $secure : $this->defaults['secure'];
 
         return ($secure ? 'https://secure' : 'http://www').'.gravatar.com/avatar/'.$hash.'?'.http_build_query(array_filter($map));
     }
@@ -84,7 +84,7 @@ class GravatarApi
      *
      * @return string
      */
-    public function getProfileUrl($email, $secure = null)
+    public function getProfileUrl($email, $secure = true)
     {
         $hash = md5(strtolower(trim($email)));
 
@@ -99,7 +99,7 @@ class GravatarApi
      *
      * @return string
      */
-    public function getProfileUrlForHash($hash, $secure = null)
+    public function getProfileUrlForHash($hash, $secure = true)
     {
         $secure = $secure ?: $this->defaults['secure'];
 
