@@ -4,8 +4,9 @@ namespace Ornicar\GravatarBundle\Tests\Twig;
 
 use Ornicar\GravatarBundle\Templating\Helper\GravatarHelperInterface;
 use Ornicar\GravatarBundle\Twig\GravatarExtension;
+use PHPUnit\Framework\TestCase;
 
-class GravatarExtensionTest extends \PHPUnit_Framework_TestCase
+class GravatarExtensionTest extends TestCase
 {
     /**
      * @var GravatarHelperInterface
@@ -23,7 +24,7 @@ class GravatarExtensionTest extends \PHPUnit_Framework_TestCase
             $this->markTestSkipped('Twig_Extension cannot be found');
         }
 
-        $this->helper = $this->getMock('Ornicar\GravatarBundle\Templating\Helper\GravatarHelperInterface');
+        $this->helper = $this->createMock('Ornicar\GravatarBundle\Templating\Helper\GravatarHelperInterface');
         $this->extension = new GravatarExtension($this->helper);
     }
 
