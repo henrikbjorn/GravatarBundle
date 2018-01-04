@@ -4,8 +4,9 @@ namespace Ornicar\GravatarBundle\Tests\Templating\Helper;
 
 use Ornicar\GravatarBundle\GravatarApi;
 use Ornicar\GravatarBundle\Templating\Helper\GravatarHelper;
+use PHPUnit\Framework\TestCase;
 
-class GravatarHelperTest extends \PHPUnit_Framework_TestCase
+class GravatarHelperTest extends TestCase
 {
     protected $helper;
 
