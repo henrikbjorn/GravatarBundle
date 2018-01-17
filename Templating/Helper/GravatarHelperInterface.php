@@ -7,11 +7,11 @@ interface GravatarHelperInterface
     /**
      * Returns a url for a gravatar.
      *
-     * @param string  $email
-     * @param int     $size
-     * @param string  $rating
-     * @param string  $default
-     * @param Boolean $secure
+     * @param string $email
+     * @param int    $size
+     * @param string $rating
+     * @param string $default
+     * @param bool   $secure
      *
      * @return string
      */
@@ -20,11 +20,11 @@ interface GravatarHelperInterface
     /**
      * Returns a url for a gravatar for a given hash.
      *
-     * @param string  $hash
-     * @param int     $size
-     * @param string  $rating
-     * @param string  $default
-     * @param Boolean $secure
+     * @param string $hash
+     * @param int    $size
+     * @param string $rating
+     * @param string $default
+     * @param bool   $secure
      *
      * @return string
      */
@@ -33,8 +33,8 @@ interface GravatarHelperInterface
     /**
      * Returns a url for a gravatar profile.
      *
-     * @param string  $email
-     * @param Boolean $secure
+     * @param string $email
+     * @param bool   $secure
      *
      * @return string
      */
@@ -43,8 +43,8 @@ interface GravatarHelperInterface
     /**
      * Returns a url for a gravatar profile, for the given hash.
      *
-     * @param string  $hash
-     * @param Boolean $secure
+     * @param string $hash
+     * @param bool   $secure
      *
      * @return string
      */
@@ -55,7 +55,7 @@ interface GravatarHelperInterface
      *
      * @param string $email
      *
-     * @return Boolean
+     * @return bool
      */
     public function exists($email);
 }
