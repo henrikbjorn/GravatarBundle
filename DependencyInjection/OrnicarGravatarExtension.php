@@ -17,7 +17,7 @@ class OrnicarGravatarExtension extends Extension
 
         $configuration = new Configuration();
         $processor = new Processor();
-        $config = $processor->process($configuration->getConfigTree(), $configs);
+        $config = $processor->process($configuration->getConfigTreeBuilder()->buildTree(), $configs);
 
         $container->getDefinition('gravatar.api')->addArgument($config);
     }
