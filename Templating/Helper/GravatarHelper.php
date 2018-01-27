@@ -3,7 +3,7 @@
 namespace Ornicar\GravatarBundle\Templating\Helper;
 
 use Ornicar\GravatarBundle\GravatarApi;
-use Symfony\Component\DependencyInjection\ContainerInterface;
+use Symfony\Component\Routing\RouterInterface;
 use Symfony\Component\Templating\Helper\Helper;
 
 /**
@@ -20,19 +20,20 @@ class GravatarHelper extends Helper implements GravatarHelperInterface
     protected $api;
 
     /**
-     * @var ContainerInterface
+     * @var RouterInterface
      */
-    protected $container;
+    protected $router;
 
     /**
      * Constructor.
      *
-     * @param Ornicar\GravatarBundle\GravatarApi $api
+     * @param GravatarApi $api
+     * @param RouterInterface|null $router
      */
-    public function __construct(GravatarApi $api, ContainerInterface $container = null)
+    public function __construct(GravatarApi $api, RouterInterface $router = null)
     {
         $this->api = $api;
-        $this->container = $container;
+        $this->router = $router;
     }
 
     /**
@@ -98,11 +99,11 @@ class GravatarHelper extends Helper implements GravatarHelperInterface
             return !!$preset;
         }
 
-        if (!$this->container || !$this->container->has('router')) {
+        if (null === $this->router) {
             return false;
         }
 
-        return 'https' == strtolower($this->container->get('router')->getContext()->getScheme());
+        return 'https' == strtolower($this->router->getContext()->getScheme());
     }
 
     /**
