@@ -50,7 +50,7 @@ class GravatarExtension extends \Twig_Extension implements GravatarHelperInterfa
         return $this->baseHelper->getUrlForHash($hash, $size, $rating, $default, $secure);
     }
 
-    /*
+    /**
      * {@inheritdoc}
      */
     public function getProfileUrl($email, $secure = true)
