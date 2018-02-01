@@ -86,26 +86,6 @@ class GravatarHelper extends Helper implements GravatarHelperInterface
     }
 
     /**
-     * Returns true if avatar should be fetched over secure connection.
-     *
-     * @param mixed $preset
-     *
-     * @return Boolean
-     */
-    protected function isSecure($preset = true)
-    {
-        if (null !== $preset) {
-            return !!$preset;
-        }
-
-        if (!$this->container || !$this->container->has('router')) {
-            return false;
-        }
-
-        return 'https' == strtolower($this->container->get('router')->getContext()->getScheme());
-    }
-
-    /**
      * Name of this Helper.
      *
      * @return string
@@ -113,5 +93,25 @@ class GravatarHelper extends Helper implements GravatarHelperInterface
     public function getName()
     {
         return 'gravatar';
+    }
+
+    /**
+     * Returns true if avatar should be fetched over secure connection.
+     *
+     * @param mixed $preset
+     *
+     * @return bool
+     */
+    protected function isSecure($preset = true)
+    {
+        if (null !== $preset) {
+            return (bool) $preset;
+        }
+
+        if (!$this->container || !$this->container->has('router')) {
+            return false;
+        }
+
+        return 'https' == strtolower($this->container->get('router')->getContext()->getScheme());
     }
 }

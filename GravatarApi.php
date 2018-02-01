@@ -15,7 +15,7 @@ namespace Ornicar\GravatarBundle;
 class GravatarApi
 {
     /**
-     * @var array Array of default options that can be overriden with getters and in the construct.
+     * @var array array of default options that can be overriden with getters and in the construct
      */
     protected $defaults = array(
         'size'    => 80,
@@ -27,7 +27,7 @@ class GravatarApi
     /**
      * Constructor.
      *
-     * @param array $options the array is merged with the defaults.
+     * @param array $options the array is merged with the defaults
      */
     public function __construct(array $options = array())
     {
@@ -37,11 +37,11 @@ class GravatarApi
     /**
      * Returns a url for a gravatar.
      *
-     * @param string  $email
-     * @param int     $size
-     * @param string  $rating
-     * @param string  $default
-     * @param Boolean $secure
+     * @param string $email
+     * @param int    $size
+     * @param string $rating
+     * @param string $default
+     * @param bool   $secure
      *
      * @return string
      */
@@ -55,19 +55,19 @@ class GravatarApi
     /**
      * Returns a url for a gravatar for the given hash.
      *
-     * @param string  $hash
-     * @param int     $size
-     * @param string  $rating
-     * @param string  $default
-     * @param Boolean $secure
+     * @param string $hash
+     * @param int    $size
+     * @param string $rating
+     * @param string $default
+     * @param bool   $secure
      *
      * @return string
      */
     public function getUrlForHash($hash, $size = null, $rating = null, $default = null, $secure = true)
     {
         $map = array(
-            's' => $size    ?: $this->defaults['size'],
-            'r' => $rating  ?: $this->defaults['rating'],
+            's' => $size ?: $this->defaults['size'],
+            'r' => $rating ?: $this->defaults['rating'],
             'd' => $default ?: $this->defaults['default'],
         );
 
@@ -79,8 +79,8 @@ class GravatarApi
     /**
      * Returns a url for a gravatar profile.
      *
-     * @param string  $email
-     * @param Boolean $secure
+     * @param string $email
+     * @param bool   $secure
      *
      * @return string
      */
@@ -94,8 +94,8 @@ class GravatarApi
     /**
      * Returns a url for a gravatar profile for the given hash.
      *
-     * @param string  $hash
-     * @param Boolean $secure
+     * @param string $hash
+     * @param bool   $secure
      *
      * @return string
      */
@@ -112,7 +112,7 @@ class GravatarApi
      *
      * @param string $email
      *
-     * @return Boolean|null Boolean if we could connect, null if no connection to gravatar.com
+     * @return bool|null Boolean if we could connect, null if no connection to gravatar.com
      */
     public function exists($email)
     {
@@ -122,7 +122,7 @@ class GravatarApi
             return;
         }
 
-        fputs($sock, 'HEAD '.$path." HTTP/1.0\r\n\r\n");
+        fwrite($sock, 'HEAD '.$path." HTTP/1.0\r\n\r\n");
         $header = fgets($sock, 128);
         fclose($sock);
 
