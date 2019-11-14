@@ -1,8 +1,7 @@
-OrnicarGravatarBundle
-=====================
+GravatarBundle
+==============
 
-Note: This is the new home for OrnicarGravatarBundle. The package name and namespace will not change. But the code
-will be maintained.
+**Deprecated**
 
 [![Build Status](https://travis-ci.org/henrikbjorn/GravatarBundle.svg?branch=master)](https://travis-ci.org/henrikbjorn/GravatarBundle)
 
